@@ -3,6 +3,7 @@ package com.openclassrooms.magicgithub.repository;
 import com.openclassrooms.magicgithub.api.ApiService;
 import com.openclassrooms.magicgithub.model.User;
 import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.FAKE_USERS;
+import com.openclassrooms.magicgithub.api.FakeApiService;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class UserRepository {
         this.apiService = apiService;
     }
 
-      private List<User> WorkArray = new ArrayList<>(FAKE_USERS);
+      //private List<User> WorkArray = new ArrayList<>(FAKE_USERS);
 
 
     public List<User> getUsers() {
@@ -27,7 +28,8 @@ public class UserRepository {
 
 
 
-        return WorkArray;
+        //return WorkArray;
+        return apiService.getUsers();
 
 
 
@@ -36,13 +38,15 @@ public class UserRepository {
 
     public void generateRandomUser() {
         // TODO: A modifier
-        WorkArray.add(User.random());
+       // WorkArray.add(User.random());
+        apiService.generateRandomUser();
     }
 
     public void deleteUser(User user) {
         // TODO: A modifier
 
-         WorkArray.remove(user);
+        // WorkArray.remove(user);
+        apiService.deleteUser(user);
 
 
     }
